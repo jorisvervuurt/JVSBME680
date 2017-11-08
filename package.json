@@ -2,6 +2,13 @@
   "name": "jvsbme680",
   "version": "1.0.0",
   "description": "An easy-to-use Node.js module for Pimoroni's BME680 Breakout",
+  "keywords": [
+    "pimoroni",
+    "bme680",
+    "breakout",
+    "raspberry",
+    "pi"
+  ],
   "main": "index.js",
   "repository": {
     "type": "git",
