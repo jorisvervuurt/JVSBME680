@@ -34,11 +34,12 @@ async function calculateGasResistanceBaseline(interval, duration) {
     
     // Measure gas resistance (Ohms) as long as the duration hasn't elapsed.
     while (process.hrtime(startTime)[0] < duration / 1000) {
-        const [ gasResistance ] = await Promise.all([
-            bme680.gasSensor.read(),
-            sleep(interval)
-        ]);
+        // Measure the gas resistance and append it to the list.
+        const gasResistance = await bme680.gasSensor.read();
         gasResistances.push(gasResistance);
+
+        // Wait for the specified interval to elapse, before remeasuring.
+        await sleep(interval);
     }
 
     // We'll use a maximum of 50 of the most recent measurements.
@@ -56,6 +57,7 @@ async function calculateGasResistanceBaseline(interval, duration) {
  * Measures the air quality (%) and logs it to the console.
  *
  * @async
+ * @param {number} interval The measurement interval (in milliseconds).
  */
 async function measureAirQuality(interval) {
     try {

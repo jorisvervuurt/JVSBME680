@@ -22,7 +22,7 @@ function sleep(duration) {
  * The measurement is performed simultaneously and then logged to the console.
  * 
  * @async
- * @param {number} interval The measurement interval.
+ * @param {number} interval The measurement interval (in milliseconds).
  */
 async function measureAll(interval) {
     // Indefinitely measure the gas resistance, humidity, pressure and temperature at the set interval.
