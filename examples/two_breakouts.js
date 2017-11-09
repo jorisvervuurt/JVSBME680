@@ -17,13 +17,13 @@ const primaryBme680 = new BME680(Constants.I2CAddress.I2CA_PRIMARY), // BME680 a
  */
 async function measureAll(bme680) {
     try {
-        const data = await bme680.read();
-        console.log(`BME680 at I2C address ${bme680.i2cAddress} - Gas resistance (Ohms): ${data.gasResistance}`);
-        console.log(`BME680 at I2C address ${bme680.i2cAddress} - Humidity (%RH): ${data.humidity}`);
-        console.log(`BME680 at I2C address ${bme680.i2cAddress} - Pressure (hPa): ${data.pressure}`);
-        console.log(`BME680 at I2C address ${bme680.i2cAddress} - Temperature (degrees C): ${data.temperature}`);
+        const { gasResistance, humidity, pressure, temperature } = await bme680.read();
+        console.log(`\nBME680 at I2C address ${bme680.i2cAddress} - Gas resistance (Ohms): ${gasResistance}`);
+        console.log(`BME680 at I2C address ${bme680.i2cAddress} - Humidity (%RH): ${humidity}`);
+        console.log(`BME680 at I2C address ${bme680.i2cAddress} - Pressure (hPa): ${pressure}`);
+        console.log(`BME680 at I2C address ${bme680.i2cAddress} - Temperature (degrees C): ${temperature}`);
     } catch(err) {
-        console.error(`BME680 at I2C address ${bme680.i2cAddress} - Failed to read data: ${err}`);
+        console.error(`\nBME680 at I2C address ${bme680.i2cAddress} - Failed to read data: ${err}`);
     }
 }
 

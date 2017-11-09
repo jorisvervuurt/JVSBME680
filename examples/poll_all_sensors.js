@@ -16,11 +16,11 @@ const bme680 = new BME680();
  */
 async function measureAll(interval) {
     try {
-        const data = await bme680.read();
-        console.log(`\nGas resistance (Ohms): ${data.gasResistance}`);
-        console.log(`Humidity (%RH): ${data.humidity}`);
-        console.log(`Pressure (hPa): ${data.pressure}`);
-        console.log(`Temperature (degrees C): ${data.temperature}`);
+        const { gasResistance, humidity, pressure, temperature } = await bme680.read();
+        console.log(`\nGas resistance (Ohms): ${gasResistance}`);
+        console.log(`Humidity (%RH): ${humidity}`);
+        console.log(`Pressure (hPa): ${pressure}`);
+        console.log(`Temperature (degrees C): ${temperature}`);
 
         // Start a new measurement after the set interval.
         setTimeout(() => measureAll(interval), interval);

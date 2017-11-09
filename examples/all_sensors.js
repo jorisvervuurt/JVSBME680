@@ -15,11 +15,11 @@ const bme680 = new BME680();
  */
 async function measureAll() {
     try {
-        const data = await bme680.read();
-        console.log(`Gas resistance (Ohms): ${data.gasResistance}`);
-        console.log(`Humidity (%RH): ${data.humidity}`);
-        console.log(`Pressure (hPa): ${data.pressure}`);
-        console.log(`Temperature (degrees C): ${data.temperature}`);
+        const { gasResistance, humidity, pressure, temperature } = await bme680.read();
+        console.log(`Gas resistance (Ohms): ${gasResistance}`);
+        console.log(`Humidity (%RH): ${humidity}`);
+        console.log(`Pressure (hPa): ${pressure}`);
+        console.log(`Temperature (degrees C): ${temperature}`);
     } catch(err) {
         console.error(`Failed to read data: ${err}`);
     }
