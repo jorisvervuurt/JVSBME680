@@ -25,7 +25,7 @@ args = arg_parser.parse_args()
 sensor = bme680.BME680(args.i2c_address)
 
 def emit_event(component, event, data=None):
-    sleep(0.1) # this is to make sure that a single JSON object is output at the same time.
+    sleep(0.1) # this is to make sure that a single JSON object is output at the same time
     sys.stdout.write(json.dumps({
         'component': component,
         'event': event,

@@ -21,7 +21,7 @@ arg_parser.add_argument('--i2c_address',
 args = arg_parser.parse_args()
 
 def emit_event(component, event, data=None):
-    sleep(0.1) # this is to make sure that a single JSON object is output at the same time.
+    sleep(0.1) # this is to make sure that a single JSON object is output at the same time
     sys.stdout.write(json.dumps({
         'component': component,
         'event': event,

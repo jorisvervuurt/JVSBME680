@@ -1,3 +1,5 @@
+[![NPM](https://nodei.co/npm/jvsbme680.png)](https://nodei.co/npm/jvsbme680/)
+
 # JVSBME680
 > An easy-to-use Node.js module for Pimoroni's BME680 Breakout
 
