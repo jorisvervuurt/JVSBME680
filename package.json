@@ -1,6 +1,6 @@
 {
   "name": "jvsbme680",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "An easy-to-use Node.js module for Pimoroni's BME680 Breakout",
   "keywords": [
     "pimoroni",
