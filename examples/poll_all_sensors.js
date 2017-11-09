@@ -8,6 +8,16 @@ const { BME680 } = require('../index');
 const bme680 = new BME680();
 
 /**
+ * Pauses code execution.
+ * 
+ * @param {number} duration The duration (in milliseconds).
+ * @returns {Promise} A promise that is resolved when the duration has elapsed.
+ */
+function sleep(duration) {
+    return new Promise(resolve => setTimeout(resolve, duration));
+}
+
+/**
  * Measures the gas resistance (Ohms), humidity (%RH), pressure (hPa) and temperature (degrees C).
  * The measurement is performed simultaneously and then logged to the console.
  * 
@@ -15,17 +25,20 @@ const bme680 = new BME680();
  * @param {number} interval The measurement interval.
  */
 async function measureAll(interval) {
-    try {
-        const { gasResistance, humidity, pressure, temperature } = await bme680.read();
-        console.log(`\nGas resistance (Ohms): ${gasResistance}`);
-        console.log(`Humidity (%RH): ${humidity}`);
-        console.log(`Pressure (hPa): ${pressure}`);
-        console.log(`Temperature (degrees C): ${temperature}`);
+    // Indefinitely measure the gas resistance, humidity, pressure and temperature at the set interval.
+    while (true) {
+        try {
+            const { gasResistance, humidity, pressure, temperature } = await bme680.read();
+            console.log(`\nGas resistance (Ohms): ${gasResistance}`);
+            console.log(`Humidity (%RH): ${humidity}`);
+            console.log(`Pressure (hPa): ${pressure}`);
+            console.log(`Temperature (degrees C): ${temperature}`);
 
-        // Start a new measurement after the set interval.
-        setTimeout(() => measureAll(interval), interval);
-    } catch(err) {
-        console.error(`\nFailed to read data: ${err}`);
+            // Wait for the specified interval to elapse, before remeasuring.
+            await sleep(interval);
+        } catch(err) {
+            console.error(`\nFailed to read data: ${err}`);
+        }
     }
 }
 

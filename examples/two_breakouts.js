@@ -31,4 +31,4 @@ async function measureAll(bme680) {
 measureAll(primaryBme680);
 
 // Wait a few seconds before measuring the gas resistance, humidity, and temperature of the BME680 at I2C address 0x77.
-setTimeout(() => measureAll(secondaryBme680), 2 * 1000);
+setTimeout(() => measureAll(secondaryBme680), 2000);
