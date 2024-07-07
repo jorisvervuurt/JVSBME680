@@ -3,6 +3,10 @@
 # JVSBME680
 > An easy-to-use Node.js module for Pimoroni's BME680 Breakout
 
+# IMPORTANT NOTICE
+This repository has moved to [GitLab](https://gitlab.joris-vervuurt.com/miscellaneous/tutorials).
+The GitHub repository been archived and will no longer be maintained.
+
 ## Features
 JVSBME680 allows you to make use of (almost) all features available in Pimoroni's [Python library](https://github.com/pimoroni/bme680).
 
