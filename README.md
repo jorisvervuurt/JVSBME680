@@ -4,7 +4,7 @@
 > An easy-to-use Node.js module for Pimoroni's BME680 Breakout
 
 # IMPORTANT NOTICE
-This repository has moved to [GitLab](https://gitlab.joris-vervuurt.com/pimoroni/jvsbme680).
+This repository has moved to [GitLab](https://gitlab.joris-vervuurt.com/node/pimoroni/jvsbme680).
 The GitHub repository been archived and will no longer be maintained.
 
 ## Features
